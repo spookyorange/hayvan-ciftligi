@@ -3,9 +3,9 @@ import './style/common.css';
 const body = document.querySelector('body');
 
 const overallController = (() => {
-
+  const wrapper = document.createElement('div');
+  
   const createWrapper = () => {
-    const wrapper = document.createElement('div');
     wrapper.classList.add('wrapper')
     
     return wrapper
