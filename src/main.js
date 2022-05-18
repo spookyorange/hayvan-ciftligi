@@ -1,4 +1,5 @@
 import './style/common.css';
+import headerInitializer from './headerController';
 
 const body = document.querySelector('body');
 
@@ -7,6 +8,7 @@ const overallController = (() => {
 
   const createWrapper = () => {
     wrapper.classList.add('wrapper');
+    wrapper.appendChild(headerInitializer());
     
     return wrapper
   }
