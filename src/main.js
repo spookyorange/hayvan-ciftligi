@@ -4,9 +4,9 @@ const body = document.querySelector('body');
 
 const overallController = (() => {
   const wrapper = document.createElement('div');
-  
+
   const createWrapper = () => {
-    wrapper.classList.add('wrapper')
+    wrapper.classList.add('wrapper');
     
     return wrapper
   }
