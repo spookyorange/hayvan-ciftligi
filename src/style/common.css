@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 1150px;
+  height: 650px;
+  background-color: #000;
+}
