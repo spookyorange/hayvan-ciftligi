@@ -12,7 +12,7 @@ body {
   margin-top: 50px;
   margin-bottom: 50px;
   width: 1150px;
-  height: 650px;
+  height: 750px;
   background-color: #000;
 }
 
@@ -26,4 +26,10 @@ body {
   height: 85px;
   width: 100%;
   background-color: orange  ;
+}
+
+.content {
+  height: 580px;
+  width: 100%;
+  background-color: purple  ;
 }

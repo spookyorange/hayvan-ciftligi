@@ -12,4 +12,4 @@ Sistem Gereksinimleri:
 1) Modern bir web tarayıcısı
 
 
-2) minimum 1150px x 750px tarayıcı penceresi
+2) minimum 1150px x 850px tarayıcı penceresi

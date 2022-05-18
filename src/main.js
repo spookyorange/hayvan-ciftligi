@@ -1,6 +1,7 @@
 import './style/common.css';
 import headerInitializer from './headerController';
 import footerInitializer from './footerController';
+import contentInitializer from './contentController';
 
 const body = document.querySelector('body');
 
@@ -10,7 +11,8 @@ const overallController = (() => {
   const createWrapper = () => {
     wrapper.classList.add('wrapper');
     wrapper.appendChild(headerInitializer());
-    wrapper.appendChild(footerInitializer())
+    wrapper.appendChild(contentInitializer());
+    wrapper.appendChild(footerInitializer());
     
     return wrapper
   }
