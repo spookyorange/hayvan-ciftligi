@@ -17,6 +17,7 @@ body {
 }
 
 .header {
+  padding-top: 15px;
   height: 85px;
   width: 100%;
   background-color: orange;
@@ -32,11 +33,11 @@ body {
 .footer {
   height: 85px;
   width: 100%;
-  background-color: orange  ;
+  background-color: orange;
 }
 
 .content {
-  height: 580px;
+  height: 565px;
   width: 100%;
-  background-color: purple  ;
+  background-color: purple;
 }
