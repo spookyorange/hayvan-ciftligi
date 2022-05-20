@@ -1,6 +1,6 @@
 import './style/common.css';
 import { headerInitializer, headerTextInitializer } from './headerController';
-import footerInitializer from './footerController';
+import { footerInitializer } from './footerController';
 import contentInitializer from './contentController';
 
 const body = document.querySelector('body');

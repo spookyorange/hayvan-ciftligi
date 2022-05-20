@@ -7,10 +7,18 @@ const footerController = (() => {
     return footer
   }
 
-  return { footerInitializer }
+  const returnFooter = () => {
+    return footer
+  }
+
+  return { footerInitializer, returnFooter }
 })()
 
 
-export default function footerInitializer() {
+export function footerInitializer() {
   return footerController.footerInitializer()
+}
+
+export function returnFooter() {
+  return footerController.returnFooter()
 }

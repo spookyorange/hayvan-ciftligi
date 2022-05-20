@@ -1,18 +1,20 @@
 import createButton from "./buttonsCreator";
 import { returnMatchGame, returnTestGame, returnDragDropGame, returnLectureContent, returnHelpContent } from "./contentGenerator";
+import { returnFooter } from './footerController';
 
 
 const contentController = (() => {
   const content = document.createElement('div');
+  const footer = returnFooter();
 
   const contentInitializer = () => {
     content.classList.add('content');
-    content.appendChild(generateIndexContent());
-
+    generateIndexContent();
     return content
   }
 
   const generateIndexContent = () => {
+    wipeCurrentLayout();
     const indexContent = document.createElement('div');
 
     const playMatchButton = createButton('Eşini Bulma');
@@ -35,33 +37,49 @@ const contentController = (() => {
     assignFunctionToButton(helpButton, generateHelpContent);
     indexContent.appendChild(helpButton);
 
-    return indexContent
+    content.appendChild(indexContent);
   }
 
 
   const generateMatchGame = () => {
     wipeCurrentLayout();
     content.appendChild(returnMatchGame());
+    footer.appendChild(generateHomeButton());
   }
 
   const generateTestGame = () => {
     wipeCurrentLayout();
     content.appendChild(returnTestGame());
+    footer.appendChild(generateHomeButton());
   }
 
   const generateDragDropGame = () => {
     wipeCurrentLayout();
     content.appendChild(returnDragDropGame());
+    footer.appendChild(generateHomeButton());
   }
 
   const generateLectureContent = () => {
     wipeCurrentLayout();
     content.appendChild(returnLectureContent());
+    footer.appendChild(generateHomeButton());
   }
 
   const generateHelpContent = () => {
     wipeCurrentLayout();
     content.appendChild(returnHelpContent());
+    footer.appendChild(generateHomeButton());
+  }
+
+  const generateHomeButton = () => {
+    const homeButton = document.createElement('button');
+    homeButton.textContent = 'Ana Sayfa';
+    homeButton.classList.add('home-button');
+    homeButton.addEventListener('click', () => {
+      generateIndexContent();
+    });
+
+    return homeButton
   }
 
 
@@ -72,11 +90,8 @@ const contentController = (() => {
   }
 
   const wipeCurrentLayout = () => {
-    let i = 0;
-    while (i < content.children.length) {
-      content.removeChild(content.lastChild);
-      i += 1
-    }
+    content.innerHTML = '';
+    footer.innerHTML = '';
   }
 
   return { contentInitializer }
