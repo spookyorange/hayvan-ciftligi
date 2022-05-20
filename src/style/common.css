@@ -19,7 +19,14 @@ body {
 .header {
   height: 85px;
   width: 100%;
-  background-color: orange  ;
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-text {
+  font-size: 50px;
 }
 
 .footer {
