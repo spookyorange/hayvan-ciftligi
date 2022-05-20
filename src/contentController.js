@@ -1,4 +1,6 @@
 import createButton from "./buttonsCreator";
+import { returnMatchGame, returnTestGame, returnDragDropGame, returnLectureContent, returnHelpContent } from "./contentGenerator";
+
 
 const contentController = (() => {
   const content = document.createElement('div');
@@ -38,26 +40,28 @@ const contentController = (() => {
 
 
   const generateMatchGame = () => {
-
+    wipeCurrentLayout();
+    content.appendChild(returnMatchGame());
   }
 
   const generateTestGame = () => {
-
+    wipeCurrentLayout();
+    content.appendChild(returnTestGame());
   }
 
   const generateDragDropGame = () => {
-
+    wipeCurrentLayout();
+    content.appendChild(returnDragDropGame());
   }
 
   const generateLectureContent = () => {
-
+    wipeCurrentLayout();
+    content.appendChild(returnLectureContent());
   }
-
 
   const generateHelpContent = () => {
     wipeCurrentLayout();
-    
-    
+    content.appendChild(returnHelpContent());
   }
 
 
