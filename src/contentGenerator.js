@@ -1,3 +1,17 @@
+import chickenImage from './images/chicken-306110.svg';
+import chickenSound from './sounds/chicken.mp3';
+import elephantImage from './images/elephant-308776.svg';
+import elephantSound from './sounds/elephant.mp3';
+
+import beeImage from './images/honey-311047.svg'
+import beeSound from './sounds/bee.mp3';
+import lionImage from './images/lion-158639.svg'
+import lionSound from './sounds/lion.mp3';
+import cowImage from './images/milk-cow-297483.svg'
+import cowSound from './sounds/cow.mp3';
+import monkeyImage from './images/monkey-37394.svg'
+import monkeySound from './sounds/monkey.mp3';
+
 const contentGenerator = (() => {
   
   const matchGameContent = () => {
@@ -20,6 +34,34 @@ const contentGenerator = (() => {
 
   const lectureContent = () => {
     const lecture = document.createElement('div');
+    lecture.classList.add('lecture')
+    const lectureText = document.createElement('h3');
+
+    lecture.appendChild(createLecture(chickenImage, chickenSound, lectureText, 'Tavuk gıdaklar ve yumurta verir.'));
+    lecture.appendChild(createLecture(elephantImage, elephantSound, lectureText, 'Fillerin büyük hortumları vardır.'));
+    lecture.appendChild(createLecture(beeImage, beeSound, lectureText, 'Arılar bal yapar.'));
+    lecture.appendChild(createLecture(lionImage, lionSound, lectureText, 'Aslan çok güçlüdür.'));
+    lecture.appendChild(createLecture(cowImage, cowSound, lectureText, 'İnek ot yer ve süt verir.'));
+    lecture.appendChild(createLecture(monkeyImage, monkeySound, lectureText, 'Maymunlar muz yer.'));
+
+    lecture.appendChild(lectureText);
+    return lecture
+  }
+
+  const createLecture = (imageFile, audioFile, lectureTextObject, lectureText) => {
+    const lecture = document.createElement('div');
+
+    const lectureImage = document.createElement('img');
+    lectureImage.src = imageFile;
+    lectureImage.height = '225';
+    lecture.appendChild(lectureImage);
+    const lectureAudio = new Audio(audioFile);
+
+    lectureImage.addEventListener('click', () => {
+      lectureAudio.play();
+      lectureTextObject.textContent = lectureText
+    });
+
 
     return lecture
   }

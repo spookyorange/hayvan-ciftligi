@@ -1,6 +1,7 @@
 import createButton from "./buttonsCreator";
 import { returnMatchGame, returnTestGame, returnDragDropGame, returnLectureContent, returnHelpContent } from "./contentGenerator";
 import { returnFooter } from './footerController';
+import homeButtonImage from './images/home.svg';
 
 
 const contentController = (() => {
@@ -72,8 +73,8 @@ const contentController = (() => {
   }
 
   const generateHomeButton = () => {
-    const homeButton = document.createElement('button');
-    homeButton.textContent = 'Ana Sayfa';
+    const homeButton = document.createElement('img');
+    homeButton.src = homeButtonImage;
     homeButton.classList.add('home-button');
     homeButton.addEventListener('click', () => {
       generateIndexContent();

@@ -34,10 +34,31 @@ body {
   height: 85px;
   width: 100%;
   background-color: orange;
+  display: flex;
+  justify-content: center;
 }
 
 .content {
   height: 565px;
   width: 100%;
   background-color: purple;
+}
+
+.lecture {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr; 
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.lecture h3 {
+  font-size: 36px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  height: 100px;
+  margin-top: 30px;
+}
+
+.home-button {
+  /* background-color: blue;*/
 }
