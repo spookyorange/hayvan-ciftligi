@@ -16,7 +16,11 @@ const headerController = (() => {
     return headerText
   }
 
-  return { headerInitializer, headerTextInitializer }
+  const returnHeader = () => {
+    return headerText;
+  }
+
+  return { headerInitializer, headerTextInitializer, returnHeader }
 })()
 
 
@@ -26,4 +30,8 @@ export function headerInitializer() {
 
 export function headerTextInitializer() {
   return headerController.headerTextInitializer()
+}
+
+export function returnHeader() {
+  return headerController.returnHeader()
 }

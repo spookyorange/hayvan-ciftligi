@@ -1,12 +1,14 @@
 import createButton from "./buttonsCreator";
 import { returnMatchGame, returnTestGame, returnDragDropGame, returnLectureContent, returnHelpContent } from "./contentGenerator";
 import { returnFooter } from './footerController';
+import { returnHeader } from "./headerController";
 import homeButtonImage from './images/home.svg';
 
 
 const contentController = (() => {
   const content = document.createElement('div');
   const footer = returnFooter();
+  const header = returnHeader();
 
   const contentInitializer = () => {
     content.classList.add('content');
@@ -16,6 +18,7 @@ const contentController = (() => {
 
   const generateIndexContent = () => {
     wipeCurrentLayout();
+    header.textContent = 'Merhaba!';
     const indexContent = document.createElement('div');
 
     const playMatchButton = createButton('Eşini Bulma');
@@ -43,30 +46,35 @@ const contentController = (() => {
 
 
   const generateMatchGame = () => {
+    header.textContent = 'Eşini Bulma';
     wipeCurrentLayout();
     content.appendChild(returnMatchGame());
     footer.appendChild(generateHomeButton());
   }
 
   const generateTestGame = () => {
+    header.textContent = 'Test';
     wipeCurrentLayout();
     content.appendChild(returnTestGame());
     footer.appendChild(generateHomeButton());
   }
 
   const generateDragDropGame = () => {
+    header.textContent = 'Eşleştirme';
     wipeCurrentLayout();
     content.appendChild(returnDragDropGame());
     footer.appendChild(generateHomeButton());
   }
 
   const generateLectureContent = () => {
+    header.textContent = 'Konu Anlatımı';
     wipeCurrentLayout();
     content.appendChild(returnLectureContent());
     footer.appendChild(generateHomeButton());
   }
 
   const generateHelpContent = () => {
+    header.textContent = 'Yardım';
     wipeCurrentLayout();
     content.appendChild(returnHelpContent());
     footer.appendChild(generateHomeButton());
