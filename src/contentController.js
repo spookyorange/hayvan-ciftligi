@@ -5,6 +5,7 @@ import { returnHeader } from "./headerController";
 import { resetTestWrapper } from "./testsGenerator";
 import { resetMatchWrapper } from "./matchGameGenerator";
 import homeButtonImage from './images/home.svg';
+import anime from "animejs";
 
 
 const contentController = (() => {
@@ -18,37 +19,77 @@ const contentController = (() => {
     return content
   }
 
+  const animateHeader = () => {
+    anime({
+      targets: returnHeader(),
+      keyframes: [
+        {scale: 2},
+        {scale: 1},
+      ],
+      duration: 1000
+    })
+  }
+
   const generateIndexContent = () => {
+    animateHeader();
     wipeCurrentLayout();
-    header.textContent = 'Merhaba!';
+
+    header.textContent = 'Hayvan Çiftliği!';
     const indexContent = document.createElement('div');
+    const indexFirstHalf = document.createElement('div');
+    const indexSecondHalf = document.createElement('div');
+
+
+
+    indexContent.classList.add('index-content')
+    indexFirstHalf.classList.add('index-first-half')
+    indexSecondHalf.classList.add('index-second-half')
+
 
     const playMatchButton = createButton('Eşini Bulma');
     assignFunctionToButton(playMatchButton, generateMatchGame);
-    indexContent.appendChild(playMatchButton);
+    indexFirstHalf.appendChild(playMatchButton);
 
     const playTestButton = createButton('Test');
     assignFunctionToButton(playTestButton, generateTestGame);
-    indexContent.appendChild(playTestButton);
+    indexFirstHalf.appendChild(playTestButton);
 
     const playDragDropButton = createButton('Eşleştirme');
     assignFunctionToButton(playDragDropButton, generateDragDropGame);
-    indexContent.appendChild(playDragDropButton);
+    indexFirstHalf.appendChild(playDragDropButton);
 
     const lectureButton = createButton('Konu Anlatımı');
     assignFunctionToButton(lectureButton, generateLectureContent);
-    indexContent.appendChild(lectureButton);
+    indexSecondHalf.appendChild(lectureButton);
 
     const helpButton = createButton('Yardım');
     assignFunctionToButton(helpButton, generateHelpContent);
-    indexContent.appendChild(helpButton);
+    indexSecondHalf.appendChild(helpButton);
 
+    const sourceButton = createButton('Kaynak Kodu');
+    sourceButton.addEventListener('click', () => (
+      window.open('https://github.com/spookyorange/hayvan-ciftligi')
+    ))
+
+    anime({
+      targets: [playMatchButton, playDragDropButton, playTestButton, lectureButton, helpButton, sourceButton],
+      scale: [0, 1],
+      duration: 850
+    })
+
+
+    indexSecondHalf.appendChild(sourceButton)
+
+    indexContent.appendChild(indexFirstHalf)
+    indexContent.appendChild(indexSecondHalf)
+    
     content.appendChild(indexContent);
   }
 
 
   const generateMatchGame = () => {
     header.textContent = 'Eşini Bulma';
+    animateHeader();
     wipeCurrentLayout();
     content.appendChild(returnMatchGame());
     footer.appendChild(generateHomeButtonWithWrapperResetMatch());
@@ -56,6 +97,7 @@ const contentController = (() => {
 
   const generateTestGame = () => {
     header.textContent = 'Test';
+    animateHeader();
     wipeCurrentLayout();
     content.appendChild(returnTestGame());
     footer.appendChild(generateHomeButtonWithWrapperReset());
@@ -63,6 +105,7 @@ const contentController = (() => {
 
   const generateDragDropGame = () => {
     header.textContent = 'Eşleştirme';
+    animateHeader();
     wipeCurrentLayout();
     content.appendChild(returnDragDropGame());
     footer.appendChild(generateHomeButton());
@@ -70,6 +113,7 @@ const contentController = (() => {
 
   const generateLectureContent = () => {
     header.textContent = 'Konu Anlatımı';
+    animateHeader();
     wipeCurrentLayout();
     content.appendChild(returnLectureContent());
     footer.appendChild(generateHomeButton());
@@ -77,6 +121,7 @@ const contentController = (() => {
 
   const generateHelpContent = () => {
     header.textContent = 'Yardım';
+    animateHeader();
     wipeCurrentLayout();
     content.appendChild(returnHelpContent());
     footer.appendChild(generateHomeButton());

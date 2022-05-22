@@ -1,3 +1,5 @@
+import anime from "animejs";
+
 const headerController = (() => {
   const header = document.createElement('div');
   const headerText = document.createElement('h1');

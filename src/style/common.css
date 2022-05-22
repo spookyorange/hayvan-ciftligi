@@ -12,6 +12,7 @@
 body {
   display: flex;
   justify-content: center;
+  background-color: #BBF7D0;
 }
 
 .wrapper {
@@ -19,14 +20,14 @@ body {
   margin-bottom: 50px;
   width: 1150px;
   height: 750px;
-  background-color: #000;
+  background-color: #22C55E;
 }
 
 .header {
   padding-top: 15px;
   height: 85px;
   width: 100%;
-  background-color: orange;
+  background-color: #4dff4d;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +40,7 @@ body {
 .footer {
   height: 85px;
   width: 100%;
-  background-color: orange;
+  background-color: #4dff4d;
   display: flex;
   justify-content: center;
 }
@@ -47,7 +48,63 @@ body {
 .content {
   height: 565px;
   width: 100%;
-  background-color: purple;
+  background-color: #4dff4d;
+}
+
+.index-content {
+  height: 565px;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.index-first-half {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.index-second-half {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.index-content button {
+  appearance: none;
+  border: none;
+  width: 250px;
+  height: 125px;
+  font-size: 28px;
+  border-radius: 5%;
+  background-color: #16a34aab;
+}
+
+@keyframes button-hover {
+  0% {
+    background-color: #16A34A;
+    color: black;
+  }
+  100% {
+    background-color: #166534;
+    color: white;
+  }
+}
+
+@keyframes button-grow {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.index-content button:hover {
+  animation: button-hover 0.4s ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .lecture {
