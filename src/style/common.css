@@ -63,3 +63,7 @@ body {
 .home-button {
   /* background-color: blue;*/
 }
+
+.invisible {
+  display: none;
+}

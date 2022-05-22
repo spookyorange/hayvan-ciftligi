@@ -12,8 +12,9 @@ import cowSound from './sounds/cow.mp3';
 import monkeyImage from './images/monkey-37394.svg'
 import monkeySound from './sounds/monkey.mp3';
 
+import { test1 } from './testsGenerator';
 const contentGenerator = (() => {
-  
+
   const matchGameContent = () => {
     const matchGame = document.createElement('div');
 
@@ -23,6 +24,7 @@ const contentGenerator = (() => {
   const testGameContent = () => {
     const testGame = document.createElement('div');
 
+    testGame.appendChild(test1());
     return testGame
   }
 

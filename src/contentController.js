@@ -2,6 +2,7 @@ import createButton from "./buttonsCreator";
 import { returnMatchGame, returnTestGame, returnDragDropGame, returnLectureContent, returnHelpContent } from "./contentGenerator";
 import { returnFooter } from './footerController';
 import { returnHeader } from "./headerController";
+import { resetTestWrapper } from "./testsGenerator";
 import homeButtonImage from './images/home.svg';
 
 
@@ -56,7 +57,7 @@ const contentController = (() => {
     header.textContent = 'Test';
     wipeCurrentLayout();
     content.appendChild(returnTestGame());
-    footer.appendChild(generateHomeButton());
+    footer.appendChild(generateHomeButtonWithWrapperReset());
   }
 
   const generateDragDropGame = () => {
@@ -85,6 +86,18 @@ const contentController = (() => {
     homeButton.src = homeButtonImage;
     homeButton.classList.add('home-button');
     homeButton.addEventListener('click', () => {
+      generateIndexContent();
+    });
+
+    return homeButton
+  }
+
+  const generateHomeButtonWithWrapperReset = () => {
+    const homeButton = document.createElement('img');
+    homeButton.src = homeButtonImage;
+    homeButton.classList.add('home-button');
+    homeButton.addEventListener('click', () => {
+      resetTestWrapper();
       generateIndexContent();
     });
 
