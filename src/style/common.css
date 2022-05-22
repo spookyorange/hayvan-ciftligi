@@ -1,6 +1,12 @@
+@font-face {
+  font-family: Poppins;
+  src: url(../fonts/Poppins/Poppins-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-family: Poppins, sans-serif;
 }
 
 body {
@@ -66,4 +72,15 @@ body {
 
 .invisible {
   display: none;
+}
+
+.card {
+  width: 500px;
+  height: 300px;
+  background-color: #fff;
+}
+
+.card-image {
+  width: 500px;
+  height: 300px;
 }

@@ -13,11 +13,14 @@ import monkeyImage from './images/monkey-37394.svg'
 import monkeySound from './sounds/monkey.mp3';
 
 import { test1 } from './testsGenerator';
+import { generatedMatchGame } from './matchGameGenerator'
+
 const contentGenerator = (() => {
 
   const matchGameContent = () => {
     const matchGame = document.createElement('div');
 
+    matchGame.appendChild(generatedMatchGame())
     return matchGame
   }
 

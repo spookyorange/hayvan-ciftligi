@@ -3,6 +3,7 @@ import { returnMatchGame, returnTestGame, returnDragDropGame, returnLectureConte
 import { returnFooter } from './footerController';
 import { returnHeader } from "./headerController";
 import { resetTestWrapper } from "./testsGenerator";
+import { resetMatchWrapper } from "./matchGameGenerator";
 import homeButtonImage from './images/home.svg';
 
 
@@ -50,7 +51,7 @@ const contentController = (() => {
     header.textContent = 'Eşini Bulma';
     wipeCurrentLayout();
     content.appendChild(returnMatchGame());
-    footer.appendChild(generateHomeButton());
+    footer.appendChild(generateHomeButtonWithWrapperResetMatch());
   }
 
   const generateTestGame = () => {
@@ -98,6 +99,18 @@ const contentController = (() => {
     homeButton.classList.add('home-button');
     homeButton.addEventListener('click', () => {
       resetTestWrapper();
+      generateIndexContent();
+    });
+
+    return homeButton
+  }
+
+  const generateHomeButtonWithWrapperResetMatch = () => {
+    const homeButton = document.createElement('img');
+    homeButton.src = homeButtonImage;
+    homeButton.classList.add('home-button');
+    homeButton.addEventListener('click', () => {
+      resetMatchWrapper();
       generateIndexContent();
     });
 
