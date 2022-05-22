@@ -2,11 +2,6 @@ import right from './images/arrow-right-circle.svg';
 import thumbup from './images/thumb-up.svg'
 
 const testsGenerator = (() => {
-  // const test5 = generateSingleTest('______ muz yer.', answers5, 0, 'test4', 0);
-  // const test4 = generateSingleTest('Bal yapan hayvan tabii ki de ___dır.', answers4, 1, 'test3', 'test5');
-  // const test3 = generateSingleTest('___in devasa bir hortumu vardır.', answers3, 4, 'test2', 'test4');
-  // const test2 = generateSingleTest('Hangisi çok güçlüdür?', answers2, 2, 'test1', 'test3');
-  // const test1 = generateSingleTest('İnek ___ verir', answers1, 0, 0, 'test2' );
 
   const testWrapper = document.createElement('div');
 
