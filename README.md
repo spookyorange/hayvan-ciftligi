@@ -45,3 +45,9 @@ Notlar:
 
 
 3) Derlenmis kod webpack ile derlendiğinden berbat görünecektir. Bu hata/sorun değil yalnızca optimizasyondur, kaynak kodu için src/ klasörüne bakın.
+
+
+4) Herhangi bir sorun olması durumunda github pages üzerinden websiteyi canlı olarak görüntüleyebilirsiniz: "https://spookyorange.github.io/hayvan-ciftligi/"
+
+
+5) Kaynak kodunu kaybetmeniz durumunda github reposundan kaynak kodunu görüntüleyebilir, klonlayabilirsiniz: "https://github.com/spookyorange/hayvan-ciftligi"
