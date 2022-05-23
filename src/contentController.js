@@ -4,6 +4,7 @@ import { returnFooter } from './footerController';
 import { returnHeader } from "./headerController";
 import { resetTestWrapper } from "./testsGenerator";
 import { resetMatchWrapper } from "./matchGameGenerator";
+import { resetDragDropGameWrapper } from "./dragDropGameGenerator"
 import homeButtonImage from './images/home.svg';
 import anime from "animejs";
 
@@ -109,7 +110,7 @@ const contentController = (() => {
     animateHeader();
     wipeCurrentLayout();
     content.appendChild(returnDragDropGame());
-    footer.appendChild(generateHomeButton());
+    footer.appendChild(generateHomeButtonWithWrapperResetDragDrop());
   }
 
   const generateLectureContent = () => {
@@ -162,6 +163,18 @@ const contentController = (() => {
     homeButton.classList.add('home-button');
     homeButton.addEventListener('click', () => {
       resetMatchWrapper();
+      generateIndexContent();
+    });
+
+    return homeButton
+  }
+
+  const generateHomeButtonWithWrapperResetDragDrop = () => {
+    const homeButton = document.createElement('img');
+    homeButton.src = homeButtonImage;
+    homeButton.classList.add('home-button');
+    homeButton.addEventListener('click', () => {
+      resetDragDropGameWrapper();
       generateIndexContent();
     });
 

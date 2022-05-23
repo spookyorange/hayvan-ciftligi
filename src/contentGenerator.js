@@ -18,6 +18,7 @@ import right from './images/arrow-right-circle.svg';
 
 import { test1 } from './testsGenerator';
 import { generatedMatchGame } from './matchGameGenerator'
+import { generateDragDropGame } from './dragDropGameGenerator';
 
 const contentGenerator = (() => {
 
@@ -38,6 +39,7 @@ const contentGenerator = (() => {
   const dragDropGameContent = () => {
     const dragDropGame = document.createElement('div');
 
+    dragDropGame.appendChild(generateDragDropGame())
     return dragDropGame
   }
 
