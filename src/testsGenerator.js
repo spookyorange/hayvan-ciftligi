@@ -39,7 +39,6 @@ const testsGenerator = (() => {
     answer.textContent = answersArray[index];
 
     answer.addEventListener('click', () => {
-      console.log(index)
       if (index == rightIndex) {
         feedbackArea.textContent = 'Doğru yanıt!'
       }
