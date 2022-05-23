@@ -5,14 +5,15 @@ import lionImage from './images/lion-158639.svg'
 import monkeyImage from './images/monkey-37394.svg'
 import elephantImage from './images/elephant-308776.svg'
 
+import anime from 'animejs'
+
 const matchGameGenerator = (() => {
 
-  const listening = []
+  const listening = [];
   const matchGameWrapper = document.createElement('div');
   const animalsArray = ['cow', 'cow', 'chicken', 'chicken', 'lion', 'lion', 'monkey', 'monkey', 'elephant', 'elephant', 'bee', 'bee'];
 
   const generateCards = () => {
-    console.log(matchGameWrapper)
     const cloneOfAnimalsArray = animalsArrayCloner();
 
     const cards = document.createElement('ul');
@@ -75,32 +76,67 @@ const matchGameGenerator = (() => {
 
   const addEventListenersToCards = (cards) => {
     let i = 0;
-    console.log(cards.children[0])
     while (i < cards.children.length) {
       const currentCard = cards.children[i];
 
       function listenToCard() {
-        listening.unshift(currentCard);
-        currentCard.firstChild.classList.remove('invisible')
-        console.log('added')
-        console.log(listening)
+        if (listening[0] && currentCard == listening[0]) {
 
-        if (listening.length == 2) {
-          if (listening[0].dataset.animal == listening[1].dataset.animal) {
-            console.log('gratz')
-            listening[0].removeEventListener('click', listenToCard)
-            listening[1].removeEventListener('click', listenToCard)
+        }
+        else {
+          listening.unshift(currentCard);
+          currentCard.firstChild.classList.remove('invisible')
+
+          if (listening.length == 2) {
+            if (listening[0] != listening[1] && listening[0].dataset.animal == listening[1].dataset.animal) {
+              Array.from(cards.children).forEach((x) => {
+                if (x.dataset.animal == listening[0].dataset.animal) {
+                  const newCard = cards.insertBefore(createCard(listening[0].dataset.animal), x)
+                  newCard.firstChild.classList.remove('invisible')
+                  cards.removeChild(x)
+                  anime({
+                    targets: newCard,
+                    scale: [1, 1.5],
+                    duration: 1500
+                  })
+                  anime({
+                    targets: newCard,
+                    keyframes: [
+                      {scale: 1.5},
+                      {scale: 1}
+                  ],
+                    duration: 1500
+                  })
+                }
+              })
+              let f = 0;
+              while (f < listening.length) {
+                listening.shift()
+              }
+            f = 0
+            }
+            else {
+              let f = 0;
+              while (f < listening.length) {
+                function makeItInvisible(listening) {
+                  listening.firstChild.classList.add('invisible')
+                }
+                setTimeout(makeItInvisible, 1000, listening[0])
+                listening.shift()
+              }
+              f = 0
+            }
           }
-          let f = 0;
-          while (f <= listening.length) {
-            console.log(listening[0])
-            listening.shift()
-            console.log('deleted')
-            f += 1
-          }
-          f = 0
         }
       }
+
+      if (cards.children.length == 0){
+        anime({
+          targets: '.home-button',
+          scale: 1
+        })
+      }
+
       currentCard.addEventListener('click', listenToCard)
 
       i += 1
