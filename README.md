@@ -9,7 +9,7 @@ Hayvanlar ile ilgili animasyonlu bir oyun.
 Sistem Gereksinimleri: 
 
 
-1) Modern bir web tarayıcısı(firefox / safari önerilir, css scale property'si firefox / safari harici çalışmıyor.)
+1) Modern bir web tarayıcısı
 
 
 2) minimum 1150px x 850px tarayıcı penceresi
