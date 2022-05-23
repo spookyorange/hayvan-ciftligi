@@ -85,6 +85,21 @@ body {
   border-radius: 5%;
   border: #166534 3px dashed;
   background-color: #16a34aab;
+  animation: button-pulse 2s linear;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes button-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes button-hover {
