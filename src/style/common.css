@@ -245,3 +245,19 @@ body {
   animation: button-scale 0.4s ease-in-out;
   animation-fill-mode: forwards;
 }
+
+.help {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.help img {
+  padding-top: 70px;
+  width:  150px
+}
+
+.help p {
+  font-size: 24px;
+}

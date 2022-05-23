@@ -12,6 +12,10 @@ import cowSound from './sounds/cow.mp3';
 import monkeyImage from './images/monkey-37394.svg'
 import monkeySound from './sounds/monkey.mp3';
 
+import homeButtonImage from './images/home.svg';
+import right from './images/arrow-right-circle.svg';
+
+
 import { test1 } from './testsGenerator';
 import { generatedMatchGame } from './matchGameGenerator'
 
@@ -73,14 +77,21 @@ const contentGenerator = (() => {
 
   const helpContent = () =>  {
     const help = document.createElement('div');
-    const helpHeader = document.createElement('h1');
-    const helpText = document.createElement('p');
-    
-    helpHeader.textContent = 'Yardım';
-    helpText.textContent = 'This is a placeholder for help content.';
+    help.classList.add('help');
+    const homeImage = document.createElement('img');
+    const homeImageParagraph = document.createElement('p');
+    homeImageParagraph.textContent = 'Ev tuşuna basarak anasayfaya dönün.'
+    const nextImage = document.createElement('img');
+    const nextImageParagraph = document.createElement('p');
+    nextImageParagraph.textContent = 'Testlerde ileri tuşuna basarak sonraki teste gidin.'
+    homeImage.src = homeButtonImage;
+    nextImage.src = right;
 
-    help.appendChild(helpHeader);
-    help.appendChild(helpText);
+
+    help.appendChild(homeImage);
+    help.appendChild(homeImageParagraph);
+    help.appendChild(nextImage);
+    help.appendChild(nextImageParagraph);
 
     return help
   }

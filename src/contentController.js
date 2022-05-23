@@ -126,6 +126,11 @@ const contentController = (() => {
     wipeCurrentLayout();
     content.appendChild(returnHelpContent());
     footer.appendChild(generateHomeButton());
+    anime({
+      targets: content.firstChild,
+      opacity: [0, 1],
+      duration: 5000
+    })
   }
 
   const generateHomeButton = () => {
