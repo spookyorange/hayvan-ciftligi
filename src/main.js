@@ -2,6 +2,7 @@ import './style/common.css';
 import { headerInitializer, headerTextInitializer } from './headerController';
 import { footerInitializer } from './footerController';
 import contentInitializer from './contentController';
+import anime from 'animejs';
 
 const body = document.querySelector('body');
 
@@ -27,3 +28,14 @@ const overallController = (() => {
 })()
 
 body.appendChild(overallController.createWrapper())
+anime ({
+  targets: body,
+  keyframes: [
+    {backgroundColor: '#BBF7D0'},
+    {backgroundColor: '#86EFAC'},
+    {backgroundColor: '#BBF7D0'}
+  ],
+  duration: 10000,
+  easing: 'linear',
+  loop: true
+})

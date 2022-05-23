@@ -26,7 +26,7 @@ const contentGenerator = (() => {
 
   const testGameContent = () => {
     const testGame = document.createElement('div');
-
+    
     testGame.appendChild(test1());
     return testGame
   }

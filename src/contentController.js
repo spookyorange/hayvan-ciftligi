@@ -23,7 +23,7 @@ const contentController = (() => {
     anime({
       targets: returnHeader(),
       keyframes: [
-        {scale: 2},
+        {scale: 1.5},
         {scale: 1},
       ],
       duration: 1000
@@ -99,7 +99,8 @@ const contentController = (() => {
     header.textContent = 'Test';
     animateHeader();
     wipeCurrentLayout();
-    content.appendChild(returnTestGame());
+    const returnedTestGame = returnTestGame();
+    content.appendChild(returnedTestGame);
     footer.appendChild(generateHomeButtonWithWrapperReset());
   }
 

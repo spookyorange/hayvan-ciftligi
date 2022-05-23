@@ -1,5 +1,6 @@
 import right from './images/arrow-right-circle.svg';
-import thumbup from './images/thumb-up.svg'
+import thumbup from './images/thumb-up.svg';
+import anime from 'animejs';
 
 const testsGenerator = (() => {
 
@@ -16,6 +17,7 @@ const testsGenerator = (() => {
     answersList.classList.add('answers-list');
 
     const feedbackArea = document.createElement('h2');
+    feedbackArea.classList.add('feedback-area');
 
     let i = 0;
     while (i < answersArray.length) {
@@ -42,8 +44,15 @@ const testsGenerator = (() => {
         feedbackArea.textContent = 'Doğru yanıt!'
       }
       else {
-        feedbackArea.textContent = `Yanlış :( Cevap ${answerString} olacaktı.`
+        feedbackArea.textContent = `Yanlış, Cevap ${answerString} olacaktı.`
       }
+
+      anime({
+        targets: feedbackArea,
+        translateX: [250, 0],
+        duration: 100,
+        easing: 'linear'
+      })
       
       let i = 0
       while (i < answersArray.length) {
@@ -54,7 +63,19 @@ const testsGenerator = (() => {
         i += 1
       }
 
-      answersList.appendChild(createNextButton(nextTest))
+      const buttonForNext = createNextButton(nextTest);
+
+      buttonForNext.classList.add('button-for-next');
+
+      anime({
+        targets: buttonForNext,
+        scale: [1, 1.05, 1],
+        delay: 500,
+        duration: 1500,
+        loop: true
+      });
+
+      answersList.appendChild(buttonForNext);
     })
 
     return answer
@@ -100,26 +121,46 @@ const testsGenerator = (() => {
   const generateTest1 = () => {
     const answers = [ 'süt', 'bal', 'pekmez', 'arı' ];
     testWrapper.appendChild(generateTest('İnek ___ verir', answers, 0, generateTest2));
+    anime({
+      targets: testWrapper,
+      translateX: [-250, 0]
+    })
     return testWrapper
   }
 
   const generateTest2 = () => {
     const answers = [ 'arı', 'inek', 'aslan', 'mısır' ];
+    anime({
+      targets: testWrapper,
+      translateX: [-250, 0]
+    })
     return generateTest('Hangisi çok güçlüdür?', answers, 2, generateTest3)
   }
 
   const generateTest3 = () => {
     const answers = [ 'maymun', 'ayçiçeği', 'yılan', 'fil' ];
+    anime({
+      targets: testWrapper,
+      translateX: [-250, 0]
+    })
     return generateTest('___in devasa bir hortumu vardır.', answers, 3, generateTest4)
   }
 
   const generateTest4 = () => {
     const answers = [ 'inek', 'arı', 'pekmez', 'lolipop' ];
+    anime({
+      targets: testWrapper,
+      translateX: [-250, 0]
+    })
     return generateTest('Bal yapan hayvan tabii ki de ___dır.', answers, 1, generateTest5)
   }
 
   const generateTest5 = () => {
     const answers = [ 'maymun', 'tavuk', 'papağan', 'çekirdek' ];
+    anime({
+      targets: testWrapper,
+      translateX: [-250, 0]
+    })
     return generateTest('______ muz yer.', answers, 0, 0)
   }
 

@@ -34,7 +34,11 @@ body {
 }
 
 .header-text {
-  font-size: 50px;
+  font-size: 64px;
+}
+
+.turned {
+  background-color: #4dff4d;
 }
 
 .footer {
@@ -79,6 +83,7 @@ body {
   height: 125px;
   font-size: 28px;
   border-radius: 5%;
+  border: #166534 3px dashed;
   background-color: #16a34aab;
 }
 
@@ -90,6 +95,7 @@ body {
   100% {
     background-color: #166534;
     color: white;
+    transform: scale(1.3);
   }
 }
 
@@ -103,6 +109,7 @@ body {
 }
 
 .index-content button:hover {
+  cursor: pointer;
   animation: button-hover 0.4s ease-in-out;
   animation-fill-mode: forwards;
 }
@@ -123,10 +130,6 @@ body {
   margin-top: 30px;
 }
 
-.home-button {
-  /* background-color: blue;*/
-}
-
 .invisible {
   display: none;
 }
@@ -142,6 +145,12 @@ body {
   height: 150px;
 }
 
+.usable-card:hover {
+  cursor: pointer;
+  animation: button-scale 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
 
 .cards-list {
   list-style: none;
@@ -151,4 +160,88 @@ body {
   align-items: center;
   justify-items: center;
   gap: 50px;
+}
+
+@keyframes button-scale-then-back {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.button-for-next {
+  animation: button-scale-then-back 0.4s ease-in-out;
+}
+
+.question-header {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  font-size: 36px;
+}
+
+.answers-list {
+  list-style: none;
+  display: grid;
+  padding-top: 50px;
+  font-size: 32px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.answers-list li {
+  text-align: center;
+  background-color: #16A34Aab;
+  width: 300px;
+  height: 125%;
+}
+
+.answers-list li:hover {
+  cursor: pointer;
+  animation: button-hover 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.answers-list img {
+  display: flex;
+  justify-content: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding-top: 50px;
+  width: 80px;
+  height: 80px;
+}
+
+.feedback-area {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+  font-size: 32px;
+}
+
+
+@keyframes button-scale {
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+.answers-list img:hover {
+  animation: button-scale 0.4s ease-in-out;
+  animation-fill-mode: forwards;
+  cursor: pointer;
+}
+
+.home-button:hover {
+  cursor: pointer;
+  animation: button-scale 0.4s ease-in-out;
+  animation-fill-mode: forwards;
 }

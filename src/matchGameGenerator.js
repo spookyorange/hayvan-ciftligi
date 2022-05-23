@@ -64,6 +64,7 @@ const matchGameGenerator = (() => {
 
     card.appendChild(cardImage);
     card.classList.add('card');
+    card.classList.add('usable-card');
     cardImage.classList.add('card-image', 'invisible');
 
     return card
@@ -91,8 +92,10 @@ const matchGameGenerator = (() => {
             if (listening[0] != listening[1] && listening[0].dataset.animal == listening[1].dataset.animal) {
               Array.from(cards.children).forEach((x) => {
                 if (x.dataset.animal == listening[0].dataset.animal) {
-                  const newCard = cards.insertBefore(createCard(listening[0].dataset.animal), x)
-                  newCard.firstChild.classList.remove('invisible')
+                  const newCard = cards.insertBefore(createCard(listening[0].dataset.animal), x);
+                  newCard.firstChild.classList.remove('invisible');
+                  newCard.firstChild.classList.add('turned');
+                  newCard.classList.remove('usable-card');
                   cards.removeChild(x)
                   anime({
                     targets: newCard,
@@ -127,6 +130,7 @@ const matchGameGenerator = (() => {
               f = 0
             }
           }
+        currentCard.firstChild.classList.add('turned');
         }
       }
 
@@ -140,6 +144,13 @@ const matchGameGenerator = (() => {
       currentCard.addEventListener('click', listenToCard)
 
       i += 1
+      anime({
+        targets: currentCard,
+        scale: [1, 1.3, 1],
+        duration: 800,
+        delay: 500,
+        easing: 'linear'
+      })
     }
   }
 
